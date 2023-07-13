@@ -1,5 +1,9 @@
 // 12.8.3. Bonus Missions
-
+function totalMass (arr){
+  for (i = 0; i < arr.length; i++) {
+    
+  }
+}
 // Code your crewMass function here:
 
 
