@@ -16,6 +16,18 @@ class CrewCandidate {
         }
         return Math.round(sum/this.scores.length*10)/10;
     }
+    status () {
+        let average = this.average();
+        if (average < 70) {
+            return 'Rejected';
+        } else if (average < 80) {
+            return 'Probationary';
+        } else if (average < 90) {
+            return 'Reserve';
+        } else if (average >= 90) {
+            return 'Accepted';
+        }
+    }
 }
 
 let bubba = new CrewCandidate('Bubba Bear',135,[88,85,90]);
@@ -27,6 +39,16 @@ console.log(glad);
 bubba.addScore(83);
 console.log(bubba.scores);
 console.log(merry.average());
+let count = 0;
+while (glad.average() < 80) {
+    glad.addScore(100);
+    count ++;
+}
+console.log(count);
+console.log(`${bubba.name} earned an average test score of ${bubba.average()}% and has a status of ${bubba.status()}`);
+console.log(`${merry.name} earned an average test score of ${merry.average()}% and has a status of ${merry.status()}`);
+console.log(`${glad.name} earned an average test score of ${glad.average()}% and has a status of ${glad.status()}`);
+
 //Add methods for adding scores, averaging scores and determining candidate status as described in the studio activity.
 
 

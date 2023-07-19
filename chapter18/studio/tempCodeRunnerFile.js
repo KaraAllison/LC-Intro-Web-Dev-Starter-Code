@@ -1,0 +1,1 @@
+console.log(`${merry.name} earned an average test score of ${merry.average()}% and has a sta
