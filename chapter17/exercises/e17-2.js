@@ -11,8 +11,6 @@ function gradeLabs(labs) {
         result = "Error thrown";
         console.log(`${lab.student} code worked: ${result}`);
       }
-      // let result = lab.runLab(3);
-      // console.log(`${lab.student} code worked: ${result === 27}`);
     }
   }
   
