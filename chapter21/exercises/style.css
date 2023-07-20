@@ -1,0 +1,18 @@
+body {
+    background-color: yellow;
+}
+p {
+    color: green;
+}
+h1 {
+    font-size: 36px;
+}
+h1, h2 {
+    text-align: center;
+}
+#cool-text {
+    color: blue;
+}
+#li {
+    color: purple;
+}
