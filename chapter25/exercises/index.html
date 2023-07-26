@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rocket Simulation</title>
+    <style>
+      label { display: block; margin-bottom: 7px;}
+    </style>
+  </head>
+  <script>
+    window.addEventListener("load", function() {
+        let form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            let formInput = [
+                document.querySelector("input[name=testName]"),
+                document.querySelector("input[name=testDate]"),
+                document.querySelector("input[name=rocketType]"),
+                document.querySelector("input[name=boosterCount]"),
+                document.querySelector("input[name=windRating]"),
+                document.querySelector("input[name=productionServers]")
+            ]
+            for (let i = 0; i < formInput.length; i++) {
+                if (formInput[i].value === '') {
+                    alert(`All fields are required!\n${formInput[i].name} is blank.`);
+                    event.preventDefault();
+                }
+            }
+        })
+    })
+  </script>
+  <body>
+    <!-- TODO: add form here -->
+    <form action="https://handlers.education.launchcode.org/request-parrot" method = "POST">
+        <p><label>Test Name<input type="text" name="testName"/></label></p>
+        <p><lable>Test Date<input type="date" name="testDate"/></lable></p>
+        <p><lable>Rocket Type <input type="select" name="rocketType"/></lable></p>
+        <p><lable>Number of Rocket Boosters<input type="number" name="boosterCount"/></lable></p>
+        Wind Rating:
+        <p><label>No Wind <input type="radio" name="windRating" value="0"/></label></p>
+        <p><label>Mild <input type="radio" name="windRating" value="10"/></label></p>
+        <p><label>Strong <input type="radio" name="windRating" value="20"/></label></p>
+        <p><label>Use production grade servers <input type="checkbox" name="productionServers"/></label></p>
+        <button>Run Simulation</button>
+    </form>
+    
+
+    <p>WARNING: This ONLY works in <b>replit</b> if this "result" page is opened in its own window. Click the icon that shows a box with an arrow coming out of it.
+    </p>
+  </body>
+  
+</html>
