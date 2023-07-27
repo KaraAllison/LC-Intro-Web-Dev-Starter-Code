@@ -10,10 +10,16 @@ function init () {
     const down = document.getElementById("down");
     const left = document.getElementById("left");
     const right = document.getElementById("right");
+    const ufo = document.getElementById("ufo");
 
     rocket.style.position = 'relative';
     rocket.style.left = '0px';
     rocket.style.top = '230px';
+
+    ufo.style.position = 'relative';
+    ufo.style.left = '80px';
+    ufo.style.top = '10px';
+    
 
 
 
@@ -51,21 +57,37 @@ function init () {
         }
     })
 
+    function updateUFO() {
+        if (parseInt(rocket.style.left)-80 > parseInt(ufo.style.left)) {
+            ufo.style.left = parseInt(ufo.style.left) + 4 + "px";
+        } else if (parseInt(rocket.style.left)-80 < parseInt(ufo.style.left)) {
+            ufo.style.left = parseInt(ufo.style.left) - 4 + "px";
+        }
+        if (parseInt(rocket.style.top) > parseInt(ufo.style.top)) {
+            ufo.style.top = parseInt(ufo.style.top) + 4 + "px";
+        } else if (parseInt(rocket.style.top) < parseInt(ufo.style.top)) {
+            ufo.style.top = parseInt(ufo.style.top) - 4 + "px";
+        }
+    }
+
     right.addEventListener("click", function(){
         if (parseInt(rocket.style.left) < 230) {
         rocket.style.left = parseInt(rocket.style.left) + 10 + "px";
+        updateUFO();
         }
     })
 
     left.addEventListener("click", function(){
         if (parseInt(rocket.style.left) > -230) {
         rocket.style.left = parseInt(rocket.style.left) - 10 + "px";
+        updateUFO();
         }
     })
     down.addEventListener("click", function(){
         if (parseInt(rocket.style.top) < 230) {
         rocket.style.top = parseInt(rocket.style.top) + 10 + "px";
         shuttleHeight.innerHTML = String(Number(shuttleHeight.innerHTML) - 10000);
+        updateUFO();
     }
     })
 
@@ -73,6 +95,7 @@ function init () {
         if (parseInt(rocket.style.top) > 0){
         rocket.style.top = parseInt(rocket.style.top) - 10 + "px";
         shuttleHeight.innerHTML = String(Number(shuttleHeight.innerHTML) + 10000);
+        updateUFO();
     }
     })
     
