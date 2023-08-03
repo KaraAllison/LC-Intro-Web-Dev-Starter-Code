@@ -1,0 +1,11 @@
+.headerText {
+    color: purple;
+    border: 5px solid rgb(52, 52, 52);
+    border-radius: 30px;
+    background-color: rgb(99, 255, 125);
+}
+.calendar {
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+}

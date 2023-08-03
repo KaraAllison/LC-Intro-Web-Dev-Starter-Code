@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "name": "Home",
+            "url": "https://howtocodewell.net/merch"
+          },
+          {
+            "name": "About",
+            "url": "https://howtocodewell.net/merch"
+          },
+          {
+            "name": "Contact Us",
+            "url": "https://howtocodewell.net/merch"
+          }
+    ]
+}
