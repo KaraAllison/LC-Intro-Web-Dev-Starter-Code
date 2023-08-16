@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
-function SignUp() {
+function SignUp(prop) {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,10 +22,8 @@ function SignUp() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: user information handling
-    console.log(userName, email, password);
-    navigate('/todo');
-    // document.getElementById('signup').style.visibility='hidden';
+    prop.setLog(true);
+    navigate('todo');
   }
 
   return (
