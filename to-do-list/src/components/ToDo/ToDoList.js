@@ -1,4 +1,5 @@
 import React from 'react'
+import { auth } from '../../config/firebaseConfig';
 
 function ToDoList(prop) {
 
@@ -14,6 +15,7 @@ function ToDoList(prop) {
                         let temp = prop.array.map(a => a);
                         temp.splice(index,1);
                         prop.setArray(temp);
+                        localStorage.setItem(prop.userKeyStored+'-list', JSON.stringify(prop.array));
                     }}>Edit</button>
                     </div>
                     <p class={'listpara'+item[1]}
@@ -23,11 +25,13 @@ function ToDoList(prop) {
                         let temp = prop.array.map(a => a);
                         temp[index][1] = !temp[index][1];
                         prop.setArray(temp);
+                        localStorage.setItem(prop.userKeyStored+'-list', JSON.stringify(prop.array));
                     }}>{item[1] ? 'Quest Complete' : 'Redo Quest'}</button>
                     <button class='listbutton' onClick={function() {
                         let temp = prop.array.map(a => a);
                         temp.splice(index,1);
                         prop.setArray(temp);
+                        localStorage.setItem(prop.userKeyStored+'-list', JSON.stringify(prop.array));
                     }}>Abandon Quest</button>
                     </div>
                 </div>

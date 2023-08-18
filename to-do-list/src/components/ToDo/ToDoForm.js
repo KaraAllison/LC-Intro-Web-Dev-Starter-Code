@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import './ToDo.css';
 import ToDoList from './ToDoList';
+import { auth } from '../../config/firebaseConfig';
 
 function ToDoForm(prop) {
 
@@ -15,6 +16,7 @@ function ToDoForm(prop) {
     event.preventDefault();
     let points = Math.ceil(Math.random()*10)*5;
     prop.setArray(prop.array.concat([[task, true, points]]));
+    localStorage.setItem(prop.userKeyStored+'-list', JSON.stringify(prop.array));
     setTask('');
     document.getElementById('todoinput').value = '';
   }
@@ -27,7 +29,8 @@ function ToDoForm(prop) {
               <div id='todobutton'><button>Submit</button></div>
         </form>
     </div>
-    <ToDoList array={prop.array} setArray={prop.setArray} task={task} setTask={setTask}/>
+    <ToDoList array={prop.array} setArray={prop.setArray}
+    userKeyStored={prop.userKeyStored} task={task} setTask={setTask}/>
     </div>
   )
 }

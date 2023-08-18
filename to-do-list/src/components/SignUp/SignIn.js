@@ -3,15 +3,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile
+  browserSessionPersistence,
+  setPersistence,
+    signInWithEmailAndPassword,
+    updateProfile
 } from 'firebase/auth';
 import { auth } from '../../config/firebaseConfig';
 
-
-function SignUp(prop) {
-  const [userName, setUserName] = useState('');
+function SignIn(prop) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,9 +24,6 @@ function SignUp(prop) {
 
   const navigate = useNavigate();
 
-  const handleUserChange = (event) => {
-    setUserName(event.target.value);
-  }
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   }
@@ -37,26 +33,23 @@ function SignUp(prop) {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password).then((res) => {
-      updateProfile(auth.currentUser, { displayName: userName });
-      navigate('todo');
-    }).catch((err) =>alert(err.code));
+    signInWithEmailAndPassword(auth, email, password).then((res) => {
+      navigate('../todo');
+    }).catch((err) => alert(err.message));
   }
 
   return (
     <div id='signup'>
         <form onSubmit={handleSubmit}>
             <h2>Welcome to Adventure Log</h2>
-            <h3>Please create an account</h3>
+            <h3>Please sign in</h3>
             <div id='textboxes'>
-            <p><label>UserName<br></br><input type='text' name='userName' required autofocus onChange={handleUserChange}/></label></p>
-            <br></br>
             <p><label>Email<br></br><input type='email' name='email' required onChange={handleEmailChange}/></label></p>
             <br></br>
             <p><label>Password<br></br><input type='password' name='password' required onChange={handlePasswordChange}/></label></p>
             <br></br>
             <div id='button'>
-              <button>Sign Up</button>
+              <button>Sign In</button>
               </div>
             </div>
     </form>
@@ -64,4 +57,4 @@ function SignUp(prop) {
   )
 }
 
-export default SignUp;
+export default SignIn;
