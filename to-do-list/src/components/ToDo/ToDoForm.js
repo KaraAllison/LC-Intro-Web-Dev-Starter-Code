@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import './ToDo.css';
 import ToDoList from './ToDoList';
-import { auth } from '../../config/firebaseConfig';
 
 function ToDoForm(prop) {
 

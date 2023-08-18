@@ -1,5 +1,4 @@
 import React from 'react'
-import { auth } from '../../config/firebaseConfig';
 
 function ToDoList(prop) {
 

@@ -16,27 +16,7 @@ function ToDo(prop) {
     return [value, setValue];
   };
 
-  
-  // const userKeyStored = auth.currentUser.email;
-
-  // auth.onAuthStateChanged(function(user) {
-  //   if (user) {
-  //     setUserKey(auth.currentUser.email);
-  //     prop.setLog(true);
-  //   } else {
-  //     setUserKey('temp');
-  //     prop.setLog(false);
-  //   }
-  // });
-  
-  // sessionStorage.setItem('user-key', userKey);
-  // const userKeyStored = sessionStorage.getItem('user-key');
-
-  // localStorage.setItem(userKeyStored+'-list', JSON.stringify(array));
-
-
-
-  const [userKey, setUserKey] = useLocalStorage('tempkey', 0);
+  const [userKey] = useLocalStorage('tempkey', 0);
   auth.onAuthStateChanged(function(user) {
     if (user) {
       prop.setLog(true);
@@ -47,7 +27,6 @@ function ToDo(prop) {
   });
 
   const userKeyStored = userKey;
-
 
   const [array, setArray] = useLocalStorage(userKeyStored+'-list', []);
 
