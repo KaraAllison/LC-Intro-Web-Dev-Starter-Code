@@ -68,7 +68,9 @@
 }
 #completedpanel {
     display: none;
-    margin-top: px;
+}
+#todopanel {
+    display: inline-block;
 }
 #turnin {
     font-size: medium;
